@@ -34,6 +34,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/orders/{order}/items', [OrdersController::class, 'getItems'])->name('admin.orders.items');
     Route::put('/orders/{order}', [OrdersController::class, 'update'])->name('admin.orders.update');
     Route::delete('/orders/{order}', [OrdersController::class, 'destroy'])->name('admin.orders.destroy');
+
+    Route::get('menus/search', [MenuController::class, 'search'])->name('admin.menus.search');
 });
 
 Route::middleware(['auth', 'role:admin'])->group(function () {
@@ -50,7 +52,7 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::get('/menus/{menu}/edit', [MenuController::class, 'edit'])->name('admin.menus.edit');
     Route::put('/menus/{menu}', [MenuController::class, 'update'])->name('admin.menus.update');
     Route::delete('/menus/{menu}', [MenuController::class, 'destroy'])->name('admin.menus.destroy');
-    Route::get('menus/search', [MenuController::class, 'search'])->name('admin.menus.search');
+
     // admin ingredients
     Route::get('/ingredients', [IngredientController::class, 'index'])->name('admin.ingredients');
     Route::get('/ingredients/create', [IngredientController::class, 'create'])->name('admin.ingredients.create');
