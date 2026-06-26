@@ -6,7 +6,6 @@
         ['route' => 'admin.orders', 'icon' => 'fa-solid fa-basket-shopping', 'label' => 'Orders'],
         ['route' => 'admin.categories', 'icon' => 'fa-regular fa-folder', 'label' => 'Categories'],
         ['route' => 'admin.menus', 'icon' => 'fa-solid fa-list', 'label' => 'Menus'],
-        ['route' => 'admin.ingredients', 'icon' => 'fa-solid fa-beer-mug-empty', 'label' => 'Ingredients'],
         ['route' => 'admin.users', 'icon' => 'fa-regular fa-user', 'label' => 'Users'],
     ];
     if (Auth::user()->role === 'kasir') {
@@ -19,7 +18,7 @@
 
 
 @section('content')
-<div class="dashboard flex h-full w-full gap-4">
+<div class="dashboard flex h-full w-full gap-4 bg-base p-4">
     <div class="sidebar w-[300px] bg-white rounded-3xl p-4 flex flex-col justify-between">
         <div>
             <div>

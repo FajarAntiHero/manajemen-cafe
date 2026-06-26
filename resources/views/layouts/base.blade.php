@@ -11,7 +11,7 @@
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
-<body class="w-screen h-screen overflow-hidden bg-base px-4 py-4">
+<body class="w-screen h-screen overflow-hidden">
     @yield('content')
 </body>
 </html>
