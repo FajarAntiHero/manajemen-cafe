@@ -19,13 +19,13 @@
         </div>
     </div>
     <!-- Because you are alive, everything is possible. - Thich Nhat Hanh -->
-     <form action="{{ route('admin.categories') }}" method="post" class="flex items-end gap-4 mb-6">
+     <form action="{{ route('admin.categories') }}" method="post" class="flex items-end gap-2 mb-6">
         @csrf
         <div class="flex flex-col">
             <label class="font-bold mb-1">Name</label>
             <input type="text" name="name" required class="border border-primary rounded-xl w-[250px] px-2 py-2" placeholder="name of category">
         </div>
-        <button type="submit" class="h-fit bg-primary text-white rounded-xl p-2">Submit</button>
+        <button type="submit" class="h-fit bg-primary text-white rounded-xl px-4 py-2 hover:bg-primary/80 cursor-pointer">Submit</button>
      </form>
 
      <table class="w-full">
@@ -40,25 +40,25 @@
             </thead>
             <tbody>
                 @foreach ($categories as $category)
-                    <tr>
+                    <tr class="hover:bg-gray-200 transition duration-200">
                         <td class="border border-primary p-2">{{ $category->id }}</td>
                         <td class="border border-primary p-2">{{ $category->name }}</td>
                         <td class="border border-primary p-2">{{ $category->slug }}</td>
                         <td class="border border-primary p-2">{{ $category->created_at }}</td>
                         <td class="border border-primary p-2">
                             <div class="flex gap-2">
-                                <form action="{{ route('admin.categories.destroy', $category->id) }}" method="post">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button type="submit" class="hover:cursor-pointer">
-                                        <i class="fa-regular fa-trash-can text-primary"></i>
-                                    </button>
-                                </form>
                                 <form action="{{ route('admin.categories.edit', $category->id) }}" method="post">
                                     @csrf
                                     @method('PUT')
                                     <button type="submit" class="hover:cursor-pointer">
-                                        <i class="fa-regular fa-pen-to-square text-primary"></i>
+                                        <i class="fa-regular fa-pen-to-square text-blue-600"></i>
+                                    </button>
+                                </form>
+                                <form action="{{ route('admin.categories.destroy', $category->id) }}" method="post">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="hover:cursor-pointer">
+                                        <i class="fa-regular fa-trash-can text-red-600"></i>
                                     </button>
                                 </form>
                             </div>

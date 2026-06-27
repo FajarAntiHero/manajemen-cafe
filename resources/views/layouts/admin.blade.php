@@ -2,16 +2,16 @@
 
 @php
     $navItems = [
-        ['route' => 'dashboard', 'icon' => 'fa-regular fa-house', 'label' => 'Dashboard'],
-        ['route' => 'admin.orders', 'icon' => 'fa-solid fa-basket-shopping', 'label' => 'Orders'],
-        ['route' => 'admin.categories', 'icon' => 'fa-regular fa-folder', 'label' => 'Categories'],
-        ['route' => 'admin.menus', 'icon' => 'fa-solid fa-list', 'label' => 'Menus'],
-        ['route' => 'admin.users', 'icon' => 'fa-regular fa-user', 'label' => 'Users'],
+        ['route' => 'dashboard', 'icon' => 'fa-regular fa-house group-hover:text-black', 'label' => 'Dashboard'],
+        ['route' => 'admin.orders', 'icon' => 'fa-solid fa-basket-shopping group-hover:text-black', 'label' => 'Orders'],
+        ['route' => 'admin.categories', 'icon' => 'fa-regular fa-folder group-hover:text-black', 'label' => 'Categories'],
+        ['route' => 'admin.menus', 'icon' => 'fa-solid fa-list group-hover:text-black', 'label' => 'Menus'],
+        ['route' => 'admin.users', 'icon' => 'fa-regular fa-user group-hover:text-black', 'label' => 'Users'],
     ];
     if (Auth::user()->role === 'kasir') {
         $navItems = [
-            ['route' => 'dashboard', 'icon' => 'fa-regular fa-house', 'label' => 'Dashboard'],
-            ['route' => 'admin.orders', 'icon' => 'fa-solid fa-basket-shopping', 'label' => 'Orders'],
+            ['route' => 'dashboard', 'icon' => 'fa-regular fa-house group-hover:text-black', 'label' => 'Dashboard'],
+            ['route' => 'admin.orders', 'icon' => 'fa-solid fa-basket-shopping group-hover:text-black', 'label' => 'Orders'],
         ];
     }
 @endphp
@@ -28,13 +28,13 @@
                 @foreach ($navItems as $item)
                     @php $isActive = request()->routeIs($item['route']) @endphp
                     <a href="{{ route($item['route']) }}">
-                        <div class="flex items-center gap-2">
-                            <div class="p-2 rounded-xl border border-primary
-                                {{ $isActive ? 'bg-primary' : 'bg-transparent' }}">
+                        <div class="flex items-center gap-2 group">
+                            <div class="p-2 rounded-xl border border-primary group-hover:border-black
+                                {{ $isActive ? 'bg-primary group-hover:bg-transparent' : 'bg-transparent' }}">
                                 <i class="{{ $item['icon'] }} text-xl
                                     {{ $isActive ? 'text-white' : 'text-primary' }}"></i>
                             </div>
-                            <p class="{{ $isActive ? 'font-semibold text-primary' : 'text-gray-500' }}">
+                            <p class="{{ $isActive ? 'font-semibold text-primary group-text:text-black' : 'text-gray-500' }} group-hover:text-black">
                                 {{ $item['label'] }}
                             </p>
                         </div>
@@ -44,7 +44,7 @@
         </div>
         <form action="{{ route('logout') }}" method="post" class="mt-16">
             @csrf
-            <button type="submit" class="w-full flex justify-start items-center gap-2 p-2 rounded-full border border-primary text-primary"><i class="fa-solid fa-arrow-right-from-bracket text-xl text-primary"></i> Log Out</button>
+            <button type="submit" class="w-full flex justify-start items-center gap-2 p-2 rounded-full border border-primary hover:bg-red-600 hover:border-white hover:text-white cursor-pointer group text-primary"><i class="fa-solid fa-arrow-right-from-bracket text-xl group-hover:text-white text-primary"></i> Log Out</button>
         </form>
     </div>
     <div class="main w-full rounded-md flex flex-col h-full gap-4">

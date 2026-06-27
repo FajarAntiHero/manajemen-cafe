@@ -176,7 +176,7 @@
                     :class="paymentMethod === 'cash'
                         ? 'bg-primary text-white border-primary'
                         : 'bg-white text-gray-600 border-gray-300 hover:border-primary hover:text-primary'"
-                    class="flex-1 flex items-center justify-center gap-2 border rounded-xl px-3 py-3 transition-all duration-150 font-medium">
+                    class="flex-1 flex items-center justify-center gap-2 border rounded-xl px-3 py-3 transition-all duration-150 font-medium cursor-pointer">
                     <i class="fa-solid fa-money-bill-wave text-lg"></i>
                     <span>Cash</span>
                 </button>
@@ -187,7 +187,7 @@
                     :class="paymentMethod === 'qris'
                         ? 'bg-primary text-white border-primary'
                         : 'bg-white text-gray-600 border-gray-300 hover:border-primary hover:text-primary'"
-                    class="flex-1 flex items-center justify-center gap-2 border rounded-xl px-3 py-3 transition-all duration-150 font-medium">
+                    class="flex-1 flex items-center justify-center gap-2 border rounded-xl px-3 py-3 transition-all duration-150 font-medium cursor-pointer">
                     <i class="fa-solid fa-qrcode text-lg"></i>
                     <span>QRIS</span>
                 </button>

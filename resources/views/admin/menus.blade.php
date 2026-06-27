@@ -35,25 +35,25 @@
         @csrf
         <div class="flex flex-col">
             <label class="font-bold">Nama</label>
-            <input type="text" name="name" required class="border border-primary rounded-xl px-2 py-2">
+            <input type="text" name="name" required class="border border-primary rounded-xl px-2 py-2" placeholder="Nama Menu">
         </div>
         <div class="flex flex-col">
             <label class="font-bold">Deskripsi</label>
-            <input type="text" name="description" required class="border border-primary rounded-xl px-2 py-2">
+            <input type="text" name="description" required class="border border-primary rounded-xl px-2 py-2" placeholder="Deskripsi Menu">
         </div>
         <div class="flex flex-col">
             <label class="font-bold">Harga</label>
-            <input type="number" name="price" required class="border border-primary rounded-xl px-2 py-2">
+            <input type="number" name="price" required class="border border-primary rounded-xl px-2 py-2" placeholder="Harga Menu">
         </div>
-        <div class="flex flex-col">
+        <div class="flex flex-col w-[150px]">
             <label class="font-bold">Kategori</label>
-            <select name="category_id" required class="border border-primary rounded-xl px-2 py-2">
+            <select name="category_id" required class="border border-primary rounded-xl px-2 py-2 w-full">
                 @foreach($categories as $category)
                     <option value="{{ $category->id }}">{{ $category->name }}</option>
                 @endforeach
             </select>
         </div>
-        <button type="submit" class="h-fit px-4 py-2 bg-primary text-white rounded-xl">Submit</button>
+        <button type="submit" class="h-fit px-4 py-2 bg-primary hover:bg-primary/80 text-white rounded-xl cursor-pointer">Submit</button>
     </form>
 
     <table class="w-full">
@@ -70,7 +70,7 @@
         </thead>
         <tbody>
             @foreach($menus as $index => $menu)
-                <tr class="w-full">
+                <tr class="w-full hover:bg-gray-200 transition duration-200">
                     <td class="border border-primary p-2">{{ $index + 1 }}</td>
                     <td class="border border-primary p-2">{{ $menu->name }}</td>
                     <td class="border border-primary p-2">{{ $menu->description }}</td>
@@ -78,11 +78,11 @@
                     <td class="border border-primary p-2">{{ $menu->category->name }}</td>
                     <td class="border border-primary p-2">{{ $menu->is_available ? 'Tersedia' : 'Tidak Tersedia' }}</td>
                     <td class="border border-primary p-2">
-                        <a href="{{ route('admin.menus.edit', $menu) }}"><i class="fa-regular fa-pen-to-square text-primary"></i></a>
+                        <a href="{{ route('admin.menus.edit', $menu) }}"><i class="fa-regular fa-pen-to-square text-blue-600 cursor-pointer"></i></a>
                         <form action="{{ route('admin.menus.destroy', $menu) }}" method="post" style="display:inline;">
                             @csrf
                             @method('DELETE')
-                            <button type="submit" onclick="return confirm('Apakah Anda yakin ingin menghapus menu ini?')"><i class="fa-regular fa-trash-can text-primary"></i></button>
+                            <button type="submit" onclick="return confirm('Apakah Anda yakin ingin menghapus menu ini?')"><i class="fa-regular fa-trash-can text-red-600 cursor-pointer"></i></button>
                         </form>
                     </td>
                 </tr>

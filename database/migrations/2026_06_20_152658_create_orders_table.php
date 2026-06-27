@@ -13,7 +13,7 @@ return new class extends Migration
             $table->string('order_number')->unique();
             $table->string('order_name')->nullable();
             $table->foreignId('user_id')->constrained('users')->cascadeOnDelete();
-            $table->enum('payment_status', ['pending', 'paid', 'cancelled'])->default('pending');
+            $table->enum('payment_status', ['pending', 'paid', 'cancelled'])->default('paid');
             $table->enum('order_status', ['pending', 'completed', 'cancelled', 'ongoing'])->default('pending');
             $table->enum('payment_method', ['cash', 'qris'])->nullable();
             $table->decimal('total_amount', 12, 2)->default(0);

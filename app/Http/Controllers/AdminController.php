@@ -10,7 +10,8 @@ class AdminController extends Controller
     public function dashboard()
     {
         $orders = Order::all();
-        $todayOrders = Order::whereDate('created_at', today())->count();
-        return view('admin.dashboard', compact('orders', 'todayOrders'));
+        $todayOrders = Order::whereDate('created_at', today())->get();
+        $countTodayOrders = Order::whereDate('created_at', today())->count();
+        return view('admin.dashboard', compact('orders', 'countTodayOrders', 'todayOrders'));
     }
 }

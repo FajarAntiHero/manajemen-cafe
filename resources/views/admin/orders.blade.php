@@ -38,18 +38,18 @@
         </div>
     </div>
     <div class="flex items-center mb-4 justify-between">
-        <a href="{{ route('admin.orders.create') }}"><button class="bg-primary text-white rounded-xl px-4 py-2 hover:cursor-pointer">Add Order</button></a>
+        <a href="{{ route('admin.orders.create') }}"><button class="bg-primary hover:bg-primary/80 text-white rounded-xl px-4 py-2 hover:cursor-pointer">Add Order</button></a>
         <form action="{{ route('admin.orders.search') }}" method="GET" class="flex w-fit gap-2">
             <input
                 type="date"
                 name="date"
                 value="{{ request('date') }}"
                 class="border border-primary rounded-xl px-2 py-2">
-            <button type="submit" class="bg-primary text-white rounded-xl px-4 py-2">
+            <button type="submit" class="bg-primary hover:bg-primary/80 text-white rounded-xl px-4 py-2 hover:cursor-pointer">
                 Search
             </button>
             @if(request('date'))
-                <a href="{{ route('admin.orders.search') }}" class="border border-primary text-primary rounded-xl px-4 py-2">
+                <a href="{{ route('admin.orders.search') }}" class="border border-primary hover:bg-primary/80 text-primary hover:text-white rounded-xl px-4 py-2 hover:cursor-pointer">
                     Reset
                 </a>
             @endif
@@ -70,7 +70,7 @@
         </thead>
         <tbody>
             @foreach($orders as $order)
-                <tr>
+                <tr class="hover:bg-gray-200 transition duration-200">
                     {{-- No. Order --}}
                     <td class="border border-primary p-2 font-mono text-sm font-bold">
                         {{ $order->order_number }}
@@ -143,10 +143,10 @@
                     <td class="border border-primary p-2 text-center">
                         <div class="flex items-center justify-center gap-3">
                             <a href="{{ route('admin.orders.edit', $order) }}" title="Edit">
-                                <i class="fa-regular fa-pen-to-square text-primary"></i>
+                                <i class="fa-regular fa-pen-to-square text-blue-600 cursor-pointer"></i>
                             </a>
                             <a href="{{ route('admin.orders.show', $order->id) }}" title="Detail">
-                                <i class="fa-solid fa-eye text-primary"></i>
+                                <i class="fa-solid fa-eye text-primary cursor-pointer"></i>
                             </a>
                             <form action="{{ route('admin.orders.destroy', $order) }}" method="POST"
                                   style="display:inline;"

@@ -42,25 +42,25 @@
         @csrf
         <div class="flex flex-col">
             <label for="" class="font-bold">Name</label>
-            <input type="text" name="name" required class="border border-primary rounded-xl px-2 py-2">
+            <input type="text" name="name" required class="border border-primary rounded-xl px-2 py-2" placeholder="Name Account" autocomplete="off">
         </div>
         <div class="flex flex-col">
             <label for="" class="font-bold">Email</label>
-            <input type="email" name="email" required class="border border-primary rounded-xl px-2 py-2">
+            <input type="email" name="email" required class="border border-primary rounded-xl px-2 py-2" placeholder="Email Account" autocomplete="off">
         </div>
         <div class="flex flex-col">
             <label for="" class="font-bold">Password</label>
-            <input type="password" name="password" required class="border border-primary rounded-xl px-2 py-2">
+            <input type="password" name="password" required class="border border-primary rounded-xl px-2 py-2" placeholder="Password Account" autocomplete="off">
         </div>
-        <div class="flex flex-col">
+        <div class="flex flex-col w-[150px]">
             <label for="" class="font-bold">Role</label>
-            <select name="role" id="role" class="border border-primary rounded-xl px-2 py-2">
+            <select name="role" id="role" class="border border-primary rounded-xl px-2 py-2 w-full">
                 <option value="admin">admin</option>
                 <option value="kasir">kasir</option>
                 <option value="dapur">dapur</option>
             </select>
         </div>
-        <button type="submit" class="h-fit bg-primary text-white rounded-xl p-2">Submit</button>
+        <button type="submit" class="h-fit bg-primary hover:bg-primary/80 text-white rounded-xl px-4 py-2 cursor-pointer">Submit</button>
      </form>
      <table class="w-full border-collapse">
             <thead>
@@ -75,19 +75,19 @@
             </thead>
             <tbody>
                 @foreach ($users as $user)
-                    <tr class="w-full">
+                    <tr class="w-full hover:bg-gray-200 transition duration-200">
                         <td class="border border-primary p-2">{{ $user->id }}</td>
                         <td class="border border-primary p-2">{{ $user->name }}</td>
                         <td class="border border-primary p-2">{{ $user->email }}</td>
                         <td class="border border-primary p-2">{{ $user->role }}</td>
                         <td class="border border-primary p-2">{{ $user->created_at }}</td>
                         <td class="border border-primary p-2">
-                            <a href="{{ route('admin.users.edit', $user) }}"><i class="fa-regular fa-pen-to-square text-primary"></i></a>
+                            <a href="{{ route('admin.users.edit', $user) }}"><i class="fa-regular fa-pen-to-square text-blue-600"></i></a>
                             <form action="{{ route('admin.users.destroy', $user) }}" method="post" style="display:inline;">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="hover:cursor-pointer">
-                                    <i class="fa-regular fa-trash-can text-primary"></i>
+                                    <i class="fa-regular fa-trash-can text-red-600"></i>
                                 </button>
                             </form>
                         </td>
