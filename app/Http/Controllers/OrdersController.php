@@ -138,7 +138,7 @@ class OrdersController extends Controller
             'order_number'   => $orderNumber,
             'order_name'     => $request->order_name,
             'user_id'        => auth()->id(),
-            'payment_status' => $request->payment_status,
+            'payment_status' => "paid",
             'order_status'   => $request->order_status,
             'payment_method' => $request->payment_method,
             'total_amount'   => $request->total_amount,
