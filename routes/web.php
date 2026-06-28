@@ -32,7 +32,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/orders/{order}', [OrdersController::class, 'show'])->name('admin.orders.show');
     Route::get('/orders/{order}/edit', [OrdersController::class, 'edit'])->name('admin.orders.edit');
     Route::get('/orders/{order}/items', [OrdersController::class, 'getItems'])->name('admin.orders.items');
-    // Route::put('/orders/{order}', [OrdersController::class, 'update'])->name('admin.orders.update');
+    Route::put('/orders/{order}', [OrdersController::class, 'update'])->name('admin.orders.update');
     Route::delete('/orders/{order}', [OrdersController::class, 'destroy'])->name('admin.orders.destroy');
 
     Route::get('menus/search', [MenuController::class, 'search'])->name('admin.menus.search');
@@ -45,30 +45,30 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::get('/categories/create', [CategoryController::class, 'create'])->name('admin.categories.create');
     Route::post('/categories', [CategoryController::class, 'store'])->name('admin.categories.store');
     Route::get('/categories/{category}/edit', [CategoryController::class, 'edit'])->name('admin.categories.edit');
-    // Route::put('/categories/{category}', [CategoryController::class, 'update'])->name('admin.categories.update');
+    Route::put('/categories/{category}', [CategoryController::class, 'update'])->name('admin.categories.update');
     Route::delete('/categories/{category}', [CategoryController::class, 'destroy'])->name('admin.categories.destroy');
     // admin menus
     Route::get('/menus', [MenuController::class, 'index'])->name('admin.menus');
     Route::get('/menus/create', [MenuController::class, 'create'])->name('admin.menus.create');
     Route::post('/menus', [MenuController::class, 'store'])->name('admin.menus.store');
     Route::get('/menus/{menu}/edit', [MenuController::class, 'edit'])->name('admin.menus.edit');
-    // Route::put('/menus/{menu}', [MenuController::class, 'update'])->name('admin.menus.update');
+    Route::put('/menus/{menu}', [MenuController::class, 'update'])->name('admin.menus.update');
     Route::delete('/menus/{menu}', [MenuController::class, 'destroy'])->name('admin.menus.destroy');
 
     // admin ingredients
-    Route::get('/ingredients', [IngredientController::class, 'index'])->name('admin.ingredients');
-    Route::get('/ingredients/create', [IngredientController::class, 'create'])->name('admin.ingredients.create');
-    Route::post('/ingredients', [IngredientController::class, 'store'])->name('admin.ingredients.store');
-    Route::get('/ingredients/{ingredient}/edit', [IngredientController::class, 'edit'])->name('admin.ingredients.edit');
+    // Route::get('/ingredients', [IngredientController::class, 'index'])->name('admin.ingredients');
+    // Route::get('/ingredients/create', [IngredientController::class, 'create'])->name('admin.ingredients.create');
+    // Route::post('/ingredients', [IngredientController::class, 'store'])->name('admin.ingredients.store');
+    // Route::get('/ingredients/{ingredient}/edit', [IngredientController::class, 'edit'])->name('admin.ingredients.edit');
     // Route::put('/ingredients/{ingredient}', [IngredientController::class, 'update'])->name('admin.ingredients.update');
-    Route::delete('/ingredients/{ingredient}', [IngredientController::class, 'destroy'])->name('admin.ingredients.destroy');
+    // Route::delete('/ingredients/{ingredient}', [IngredientController::class, 'destroy'])->name('admin.ingredients.destroy');
     
     // admin users
     Route::get('/users', [UserController::class, 'index'])->name('admin.users');
     Route::get('/users/create', [UserController::class, 'create'])->name('admin.users.create');
     Route::post('/users', [UserController::class, 'store'])->name('admin.users.store');
     Route::get('/users/{user}', [UserController::class, 'edit'])->name('admin.users.edit');
-    // Route::put('/users/{user}', [UserController::class, 'update'])->name('admin.users.update');
+    Route::put('/users/{user}', [UserController::class, 'update'])->name('admin.users.update');
     Route::delete('/users/{user}', [UserController::class, 'destroy'])->name('admin.users.destroy');
     
 });

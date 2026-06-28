@@ -35,7 +35,9 @@ class MenuController extends Controller
 
     public function edit(Menu $menu)
     {
-        return view('admin.menus.edit', compact('menu'));
+        $menu = Menu::with('category')->find($menu->id);
+        $categories = Category::all();
+        return view('admin.editMenu', compact('menu', 'categories'));
     }
 
     public function update(Request $request, Menu $menu)

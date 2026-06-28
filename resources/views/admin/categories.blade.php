@@ -47,13 +47,9 @@
                         <td class="border border-primary p-2">{{ $category->created_at }}</td>
                         <td class="border border-primary p-2">
                             <div class="flex gap-2">
-                                <form action="{{ route('admin.categories.edit', $category->id) }}" method="post">
-                                    @csrf
-                                    @method('PUT')
-                                    <button type="submit" class="hover:cursor-pointer">
-                                        <i class="fa-regular fa-pen-to-square text-blue-600"></i>
-                                    </button>
-                                </form>
+                                <a href="{{ route('admin.categories.edit', $category->id) }}" class="hover:cursor-pointer">
+                                    <i class="fa-regular fa-pen-to-square text-blue-600"></i>
+                                </a>
                                 <form action="{{ route('admin.categories.destroy', $category->id) }}" method="post">
                                     @csrf
                                     @method('DELETE')
