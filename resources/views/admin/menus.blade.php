@@ -6,7 +6,6 @@
 
 <div>
     <div>
-        <p class="mb-4">Menu helps you organize and group your products.</p>
         <div class="flex gap-4 mb-4">
             <div class="w-[250px] bg-white border rounded-3xl px-4 py-2">
                 <p class="mb-2 font-bold">Total Menus</p>

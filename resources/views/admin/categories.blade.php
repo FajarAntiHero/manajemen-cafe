@@ -6,10 +6,9 @@
 
 <div>
     <div>
-        <p class="mb-4">Category help you organize and group your products.</p>
         <div class="flex mb-4">
             <div class="w-[250px] bg-white border rounded-3xl px-4 py-2">
-                <p class="mb-2 font-bold">Total Categories</p>
+                <p class="mb-2 font-bold">Total Kategori</p>
                 <div class="flex w-full justify-between items-center">
                     <p class="text-4xl font-bold font-ancizar">{{ $categories->count() }}</p>
                     <i class="fa-solid fa-folder text-primary text-2xl"></i>

@@ -1,28 +1,19 @@
-<!DOCTYPE html>
-<html lang="id">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login | McCafe</title>
-    
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
-</head>
-<body class="min-h-screen bg-base flex items-center justify-center p-4">
+@extends ('layouts.base')
 
-    <div class="bg-white rounded-2xl shadow-xl p-8 w-full max-w-md border-t-4 border-primary">
-        
-        <div class="text-center mb-8">
-            <h1 class="text-4xl font-bold font-ancizar text-primary mb-2">McCafe</h1>
-            <p class="text-slate-600">Silakan login untuk masuk ke Dashboard</p>
-        </div>
+@section('title', 'Login - McCafe')
 
-        <form method="POST" action="{{ route('login') }}" class="space-y-6">
+@section('content')
+<div class="w-screen h-screen flex items-center justify-center bg-primary">
+    <form method="POST" action="{{ route('login') }}" class="w-[500px] bg-white p-4 pt-10 rounded-3xl">
             @csrf
-
-            <div>
-                <label class="block text-sm font-semibold text-slate-700 mb-2">Email</label>
+            <div class="flex flex-col gap-2 items-center mb-14">
+                <a href="{{ route('login') }}" class="text-4xl font-bold font-ancizar text-primary">McCafe</a>
+                <p class="text-lg font-ancizar font-bold">New Day, New Caffe</p>
+            </div>
+            <div class="flex flex-col gap-2 relative mb-8">
+                <label class="block bg-white absolute -top-3 left-6 text-sm font-semibold font-ancizar px-2">Email</label>
                 <input type="email" name="email" value="{{ old('email') }}" required 
-                       class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition duration-200"
+                       class="w-full px-4 py-3 border border-primary rounded-full focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition duration-200"
                        placeholder="Masukkan email Anda">
                 
                 @error('email') 
@@ -30,20 +21,18 @@
                 @enderror
             </div>
 
-            <div>
-                <label class="block text-sm font-semibold text-slate-700 mb-2">Password</label>
+            <div class="flex flex-col gap-2 relative mb-8">
+                <label class="block bg-white absolute -top-3 left-6 text-sm font-semibold font-ancizar px-2">Password</label>
                 <input type="password" name="password" required 
-                       class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition duration-200"
+                       class="w-full px-4 py-3 border border-primary rounded-full focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition duration-200"
                        placeholder="Masukkan password Anda">
             </div>
 
             <button type="submit" 
-                    class="w-full bg-primary text-white font-bold py-3 px-4 rounded-lg hover:opacity-90 transition duration-300 shadow-md mt-4">
+                    class="w-full bg-primary text-white font-bold py-2 font-ancizar rounded-full text-xl mt-10 hover:bg-primary/80 cursor-pointer">
                 Login
             </button>
             
         </form>
-    </div>
-
-</body>
-</html>
+</div>
+@endsection

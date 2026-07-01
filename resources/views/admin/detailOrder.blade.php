@@ -14,7 +14,7 @@
             </div>
         </div>
         <div class="w-[400px] bg-white border rounded-3xl px-4 py-2">
-            <p class="mb-2 font-bold">Total Amount</p>
+            <p class="mb-2 font-bold">Total Harga</p>
             <div class="flex w-full justify-between items-center">
                 <p class="text-4xl font-bold font-ancizar">Rp {{ $order->total_amount }}</p>
                 <i class="fa-solid fa-dollar text-primary text-2xl"></i>
@@ -22,24 +22,11 @@
         </div>
     </div>
     <div class="flex w-full justify-between items-center mb-6">
+        <div class="flex items-end gap-2">
             <p class="text-[42px] font-bold font-ancizar">{{ $order->order_name }}</p>
-        <div class="flex flex-col items-end gap-3">
-            @if($order->order_status === 'pending')
-            <div class="flex items-center gap-1 bg-orange-100 text-orange-700 text-xl font-ancizar font-semibold px-2 py-1 rounded-lg">
-                <i class="fa-solid fa-spinner text-xl"></i> Pending
-            </div>
-        @elseif($order->order_status === 'success')
-            <div class="flex items-center gap-1 bg-green-100 text-green-700 text-xl font-ancizar font-semibold px-2 py-1 rounded-lg">
-                <i class="fa-solid fa-check-circle text-xl"></i> Success
-            </div>
-        @elseif($order->order_status === 'cancelled')
-            <div class="flex items-center gap-1 bg-red-100 text-red-700 text-xl font-ancizar font-semibold px-2 py-1 rounded-lg">
-                <i class="fa-solid fa-times-circle text-xl"></i> Cancelled
-            </div>
-        @else
-            <div class="text-gray-400 text-xl">{{ $order->order_status }}</div>
-        @endif
-        @if($order->payment_method === 'cash')
+            <p class="font-semibold text-black/60 mb-2">{{$order->created_at->format('d M Y H:i')}}</p>
+        </div>
+            @if($order->payment_method === 'cash')
                 <div class="flex items-center w-fit gap-1 bg-green-100 text-green-700 text-xs font-semibold px-2 py-1 rounded-lg">
                     <i class="fa-solid fa-money-bill-wave text-xs"></i> Cash
                 </div>
@@ -51,7 +38,6 @@
                 <div class="text-gray-400 text-xs">-</div>
             @endif
 
-        </div>
         
     </div>
     <table class="w-full h-fit">

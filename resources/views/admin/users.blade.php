@@ -6,17 +6,16 @@
 @section('contents')
 <div>
     <div>
-        <p class="mb-4">User help you organize and group your products.</p>
-        <div class="flex justify-between mb-4">
+        <div class="flex gap-4 mb-4">
             <div class="w-[250px] bg-white border rounded-3xl px-4 py-2">
-                <p class="mb-2 font-bold">Total Users</p>
+                <p class="mb-2 font-bold">Total Pengguna</p>
                 <div class="flex w-full justify-between items-center">
                     <p class="text-4xl font-bold font-ancizar">{{ $users->count() }}</p>
                     <i class="fa-solid fa-folder text-primary text-2xl"></i>
                 </div>
             </div>
             <div class="w-[250px] bg-white border rounded-3xl px-4 py-2">
-                <p class="mb-2 font-bold">Total Cashier</p>
+                <p class="mb-2 font-bold">Total Kasir</p>
                 <div class="flex w-full justify-between items-center">
                     <p class="text-4xl font-bold font-ancizar">{{ $users->where('role', 'kasir')->count() }}</p>
                     <i class="fa-solid fa-folder text-primary text-2xl"></i>
@@ -29,13 +28,7 @@
                     <i class="fa-solid fa-folder text-primary text-2xl"></i>
                 </div>
             </div>
-            <div class="w-[250px] bg-white border rounded-3xl px-4 py-2">
-                <p class="mb-2 font-bold">Total Dapur</p>
-                <div class="flex w-full justify-between items-center">
-                    <p class="text-4xl font-bold font-ancizar">{{ $users->where('role', 'dapur')->count() }}</p>
-                    <i class="fa-solid fa-folder text-primary text-2xl"></i>
-                </div>
-            </div>
+        
         </div>
     </div>
      <form action="{{ route('admin.users') }}" method="post" class="w-full flex gap-2 mb-4 items-end">

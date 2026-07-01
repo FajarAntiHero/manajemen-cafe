@@ -6,7 +6,7 @@
 <div>
     <div class="flex gap-4 mb-6">
         <div class="w-[40%] bg-white border rounded-3xl px-4 py-2">
-            <p class="mb-2 font-bold">Welcome Back!</p>
+            <p class="mb-2 font-bold">Selamat Datang!</p>
             <div class="flex w-full justify-between items-center">
                 <p class="text-4xl font-bold font-ancizar">{{ Auth::user()->name }}</p>
                 <i class="fa-solid fa-user text-primary text-2xl"></i>
@@ -27,7 +27,7 @@
             </div>
         </div>
         <div class="w-[15%] bg-white border rounded-3xl px-4 py-2">
-            <p class="mb-2 font-bold">Total Orders</p>
+            <p class="mb-2 font-bold">Total Pesanan</p>
             <div class="flex w-full justify-between items-center">
                 <p class="text-4xl font-bold font-ancizar">{{ $orders->count() }}</p>
                 <i class="fa-solid fa-folder text-primary text-2xl"></i>
@@ -36,7 +36,7 @@
         
     </div>
     <div>
-        <p class="font-ancizar text-2xl mb-2 font-bold">Order Hari Ini</p>
+        <p class="font-ancizar text-2xl mb-2 font-bold">Pesanan Hari Ini</p>
         <table class="w-full">
             <thead>
                 <tr>
@@ -44,7 +44,6 @@
                     <th class="border border-primary p-2 text-left">Nama Pesanan</th>
                     <th class="border border-primary p-2 text-left">Tanggal</th>
                     <th class="border border-primary p-2 text-center">Metode</th>
-                    <th class="border border-primary p-2 text-center">Status Order</th>
                     <th class="border border-primary p-2 text-center">Status Bayar</th>
                     <th class="border border-primary p-2 text-left">Total</th>
                     <th class="border border-primary p-2 rounded-tr-xl text-center">Aksi</th>
@@ -83,23 +82,6 @@
                         @endif
                     </td>
 
-                    {{-- Status Order --}}
-                    <td class="border border-primary p-2 text-center">
-                        @php
-                            $orderStatusConfig = [
-                                'pending'   => ['bg-yellow-100 text-yellow-700', 'Pending'],
-                                'ongoing'   => ['bg-blue-100 text-blue-700',     'Ongoing'],
-                                'completed' => ['bg-green-100 text-green-700',   'Completed'],
-                                'cancelled' => ['bg-red-100 text-red-700',       'Cancelled'],
-                            ];
-                            [$orderClass, $orderLabel] = $orderStatusConfig[$order->order_status]
-                                ?? ['bg-gray-100 text-gray-500', $order->order_status];
-                        @endphp
-                        <span class="inline-block text-xs font-semibold px-2 py-1 rounded-lg {{ $orderClass }}">
-                            {{ $orderLabel }}
-                        </span>
-                    </td>
-
                     {{-- Status Pembayaran --}}
                     <td class="border border-primary p-2 text-center">
                         @php
@@ -130,15 +112,6 @@
                             <a href="{{ route('admin.orders.show', $order->id) }}" title="Detail">
                                 <i class="fa-solid fa-eye text-primary cursor-pointer"></i>
                             </a>
-                            <form action="{{ route('admin.orders.destroy', $order) }}" method="POST"
-                                  style="display:inline;"
-                                  onsubmit="return confirm('Hapus order {{ $order->order_number }}?')">
-                                @csrf
-                                @method('DELETE')
-                                <button type="submit" class="hover:cursor-pointer" title="Hapus">
-                                    <i class="fa-regular fa-trash-can text-red-500"></i>
-                                </button>
-                            </form>
                         </div>
                     </td>
                 </tr>

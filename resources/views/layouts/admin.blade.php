@@ -3,15 +3,15 @@
 @php
     $navItems = [
         ['route' => 'dashboard', 'icon' => 'fa-regular fa-house group-hover:text-black', 'label' => 'Dashboard'],
-        ['route' => 'admin.orders', 'icon' => 'fa-solid fa-basket-shopping group-hover:text-black', 'label' => 'Orders'],
-        ['route' => 'admin.categories', 'icon' => 'fa-regular fa-folder group-hover:text-black', 'label' => 'Categories'],
-        ['route' => 'admin.menus', 'icon' => 'fa-solid fa-list group-hover:text-black', 'label' => 'Menus'],
-        ['route' => 'admin.users', 'icon' => 'fa-regular fa-user group-hover:text-black', 'label' => 'Users'],
+        ['route' => 'admin.orders', 'icon' => 'fa-solid fa-basket-shopping group-hover:text-black', 'label' => 'Pesanan'],
+        ['route' => 'admin.categories', 'icon' => 'fa-regular fa-folder group-hover:text-black', 'label' => 'Kategori'],
+        ['route' => 'admin.menus', 'icon' => 'fa-solid fa-list group-hover:text-black', 'label' => 'Menu'],
+        ['route' => 'admin.users', 'icon' => 'fa-regular fa-user group-hover:text-black', 'label' => 'Pengguna'],
     ];
     if (Auth::user()->role === 'kasir') {
         $navItems = [
             ['route' => 'dashboard', 'icon' => 'fa-regular fa-house group-hover:text-black', 'label' => 'Dashboard'],
-            ['route' => 'admin.orders', 'icon' => 'fa-solid fa-basket-shopping group-hover:text-black', 'label' => 'Orders'],
+            ['route' => 'admin.orders', 'icon' => 'fa-solid fa-basket-shopping group-hover:text-black', 'label' => 'Pesanan'],
         ];
     }
 @endphp
@@ -44,7 +44,7 @@
         </div>
         <form action="{{ route('logout') }}" method="post" class="mt-16">
             @csrf
-            <button type="submit" class="w-full flex justify-start items-center gap-2 p-2 rounded-full border border-primary hover:bg-red-600 hover:border-white hover:text-white cursor-pointer group text-primary"><i class="fa-solid fa-arrow-right-from-bracket text-xl group-hover:text-white text-primary"></i> Log Out</button>
+            <button type="submit" class="w-full flex justify-start items-center gap-2 p-2 rounded-full border border-primary hover:bg-red-600 hover:border-white hover:text-white cursor-pointer group text-primary"><i class="fa-solid fa-arrow-right-from-bracket text-xl group-hover:text-white text-primary"></i> Keluar</button>
         </form>
     </div>
     <div class="main w-full rounded-md flex flex-col h-full gap-4">

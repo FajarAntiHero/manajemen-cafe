@@ -1,35 +1,19 @@
 @extends('layouts.base')
 
+@section('title', 'McCafe')
+
 @section('content')
-<!DOCTYPE html>
-<html lang="id">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Manajemen Kafe | McCafe</title>
-
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
-</head>
-<body class="min-h-screen">
-    <header class="bg-primary text-white p-6 shadow-md">
-        <div class="container mx-auto">
-            <h1 class="text-2xl font-bold font-ancizar">McCafe</h1>
-        </div>
-    </header>
-
-    <main class="container mx-auto text-center py-20 px-4">
-        <h1 class="text-5xl md:text-6xl text-primary mb-6">
-            Selamat Datang di McCafe
-        </h1>
-        <p class="text-lg text-slate-800 mb-8 max-w-2xl mx-auto">
-            Sistem terpadu untuk mengelola pesanan, stok, dan karyawan kafe Anda dengan mudah.
+<div class="w-screen h-screen overflow-hidden flex justify-center items-center">
+    <main class="container text-center">
+        <p class="text-[42px] font-bold text-primary font-ancizar">
+            McCafe
         </p>
-        <a href="{{ route('login') }}" class="inline-block bg-primary text-white px-10 py-3 rounded-lg font-bold hover:opacity-90 transition duration-300">
+        <p class="text-lg font-ancizar font-bold mb-8">
+            New Day, New Coffe!
+        </p>
+        <a href="{{ route('login') }}" class="inline-block text-primary text-2xl border border-primary py-2 w-[250px] rounded-full font-bold font-ancizar hover:text-white hover:bg-primary transition duration-300">
             Login
         </a>
-        
     </main>
-
-</body>
-</html>
+</div>
 @endsection

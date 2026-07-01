@@ -6,7 +6,6 @@
 
 @section ('contents')
 <div>
-    <p class="mb-4">Order helps you manage your orders.</p>
     <div class="flex gap-4 mb-6">
         <div class="w-[230px] bg-white border rounded-3xl px-4 py-2">
             <p class="mb-2 font-bold">Total Orders</p>

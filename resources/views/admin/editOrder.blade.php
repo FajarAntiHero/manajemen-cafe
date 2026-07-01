@@ -92,7 +92,7 @@
             </div>
         </div>
         <div class="w-[400px] bg-white border rounded-3xl px-4 py-2">
-            <p class="mb-2 font-bold">Total Amount</p>
+            <p class="mb-2 font-bold">Total Harga</p>
             <div class="flex w-full justify-between items-center">
                 <p class="text-4xl font-bold font-ancizar" x-text="formatRupiah(totalAmount)">Rp 0</p>
                 <i class="fa-solid fa-dollar text-primary text-2xl"></i>
@@ -251,7 +251,7 @@
             type="submit"
             :disabled="items.length === 0"
             class="bg-primary text-white rounded-xl px-6 py-2 disabled:opacity-50 disabled:cursor-not-allowed">
-            Update Order
+            Simpan
         </button>
     </form>
 
